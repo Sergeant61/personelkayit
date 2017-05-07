@@ -39,7 +39,7 @@ public class DAO {
 	public DAO() {
 		try {
 			configuration = new Configuration();
-			configuration.configure("hibernate.cfg.xml"); // hibernate config
+			configuration.configure("recep/resource/hibernate.cfg.xml"); // hibernate config
 															// xml file name
 
 			String[] urlTxt = Config.configOku();

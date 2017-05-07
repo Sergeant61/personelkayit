@@ -1,7 +1,7 @@
 package recep.io;
 
 public class Config {
-	private static String URL=("resource/URL.txt");
+	private static String URL=("URL.txt");
 
 	public static String[] configOku(){
 		String[] txtDizi;
