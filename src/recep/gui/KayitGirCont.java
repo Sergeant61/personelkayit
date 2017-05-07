@@ -24,7 +24,6 @@ import recep.entity.HangiKurs;
 import recep.entity.Person;
 
 public class KayitGirCont implements Initializable {
-	private DAO dao = new DAO();
 	
 	@FXML private TextField txtAd;
 	@FXML private TextField txtSoyad;
@@ -45,10 +44,10 @@ public class KayitGirCont implements Initializable {
 		radioYuz.setToggleGroup(group);	
 		
 		
-		List<HangiKurs> myList = dao.getHangiKursList();
+		List<HangiKurs> myList = DAO.getInstance().getHangiKursList();
 		String[] kursAd = new String[myList.size()];
 		for(int i=0 ; i < myList.size() ; i ++ ){
-			kursAd[i] = dao.getHangiKursList().get(i).getKursAdi();
+			kursAd[i] = DAO.getInstance().getHangiKursList().get(i).getKursAdi();
 		}
 		
 		ObservableList<String> data = FXCollections.observableArrayList(kursAd);
@@ -68,7 +67,7 @@ public class KayitGirCont implements Initializable {
 		Person person = new Person(txtAd.getText(), txtSoyad.getText(), txtTel.getText(), txtEmail.getText(),
 				comboHagiKurs.getValue(), gorusmeTipi, txtMesaj.getText(), Calendar.getInstance().getTime());
 		
-		dao.addValue(person);
+		DAO.getInstance().addValue(person);
 		
 	}
 

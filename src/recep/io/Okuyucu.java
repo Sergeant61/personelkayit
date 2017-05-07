@@ -57,7 +57,7 @@ public class Okuyucu implements IOkuI, IOkuII {
 
 			while (oku.hasNext()) {
 				text=oku.nextLine();
-				System.out.println(text);
+				//System.out.println(text);
 				
 			}
 

@@ -25,7 +25,6 @@ import recep.entity.Person;
 import recep.entity.SorgulaEntity;
 
 public class SorgulaCont implements Initializable {
-	private DAO dao = new DAO();
 
 	@FXML
 	private TextField txtAd;
@@ -55,10 +54,10 @@ public class SorgulaCont implements Initializable {
 		radioTel.setToggleGroup(group);
 		radioYuz.setToggleGroup(group);
 
-		List<HangiKurs> myList = dao.getHangiKursList();
+		List<HangiKurs> myList = DAO.getInstance().getHangiKursList();
 		String[] kursAd = new String[myList.size()];
 		for (int i = 0; i < myList.size(); i++) {
-			kursAd[i] = dao.getHangiKursList().get(i).getKursAdi();
+			kursAd[i] = DAO.getInstance().getHangiKursList().get(i).getKursAdi();
 		}
 
 		ObservableList<String> data = FXCollections.observableArrayList(kursAd);
@@ -135,7 +134,7 @@ public class SorgulaCont implements Initializable {
 
 		SorgulaEntity sorgulaEntity = new SorgulaEntity(ad, soyad, date1, date2, hangiKurs, gorusmeTipi);
 
-		List<Person> list = dao.sorgula(sorgulaEntity);
+		List<Person> list = DAO.getInstance().sorgula(sorgulaEntity);
 
 		ObservableList<Person> data = FXCollections.observableArrayList(list);
 		tableList.setItems(data);
